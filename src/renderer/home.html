@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estilo Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <main>
+      <div class="bg-white dark:bg-gray-900">
+        <div class="container px-6 py-8 mx-auto">
+          <h1
+            class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white"
+          >
+            Estilo Profesional
+          </h1>
+
+          <p
+            class="max-w-2xl mx-auto mt-4 text-center text-gray-500 xl:mt-6 dark:text-gray-300"
+          >
+            ¡Bienvenidos a nuestro Salón de Belleza! En nuestro establecimiento
+            nos dedicamos a proporcionar servicios de belleza de alta calidad
+            para que nuestros clientes se sientan y luzcan mejor que nunca.
+            Desde cortes de pelo y peinados hasta tratamientos faciales y
+            corporales, nuestro equipo de profesionales altamente capacitados
+            está aquí para satisfacer todas sus necesidades de belleza.
+          </p>
+
+          <div
+            class="grid grid-cols-1 gap-8 mt-6 xl:mt-12 xl:gap-12 md:grid-cols-2 lg:grid-cols-3"
+          >
+            <div
+              class="w-full p-8 space-y-8 text-center border border-gray-200 rounded-lg dark:border-gray-700 justify-items-center"
+            >
+              <p class="font-medium text-gray-500 uppercase dark:text-gray-300">
+                Ver Citas
+              </p>
+
+              <a href="viewCites.html" class="p-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="mx-auto w-20 h-20"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  />
+                </svg>
+              </a>
+
+              <p class="font-medium text-gray-500 dark:text-gray-300">
+                Modulo para buscar las citas confirmadas, busquedas por cedula
+                del cliente.
+              </p>
+
+              <button
+                class="w-full px-4 py-2 mt-10 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+                id="viewCitesBtn"
+              >
+                Ingresar
+              </button>
+            </div>
+
+            <div
+              class="w-full p-8 space-y-8 text-center border border-gray-200 rounded-lg dark:border-gray-700"
+            >
+              <p class="font-medium text-gray-500 uppercase dark:text-gray-300">
+                Crear Cita
+              </p>
+
+              <a href="createCites.html" class="p-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="mx-auto w-20 h-20"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"
+                  />
+                </svg>
+              </a>
+
+              <p class="font-medium text-gray-500 dark:text-gray-300">
+                Modulo para crear las nuvas citas con clientes ya registrados.
+              </p>
+
+              <button
+                class="w-full px-4 py-2 mt-10 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+                id="createCitesBtn"
+              >
+                Ingresar
+              </button>
+            </div>
+
+            <div
+              class="w-full p-8 space-y-8 text-center border border-gray-200 rounded-lg dark:border-gray-700"
+            >
+              <p class="font-medium text-gray-500 uppercase dark:text-gray-300">
+                Registrar Usuario
+              </p>
+
+              <a href="registUser.html" class="p-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="mx-auto w-20 h-20"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"
+                  />
+                </svg>
+              </a>
+
+              <p class="font-medium text-gray-500 dark:text-gray-300">
+                Modulo para registrar los nuevos clientes y que sus datos queden
+                guardados.
+              </p>
+
+              <button
+                class="w-full px-4 py-2 mt-10 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+                id="registUserBtn"
+              >
+                Ingresar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="./home.js"></script>
+</html>
