@@ -26,7 +26,7 @@ function createWindow() {
 
 ipcMain.on("get-cities", async (event, args) => {
   const connection = await getConection();
-  const data = await connection.query('SELECT * FROM citas INNER JOIN usuarios, empleados, procedimientos LIMIT ' + args + ', 10');
+  const data = await connection.query('SELECT *, DATE_FORMAT(fechaCita, "%Y/%d/%m") AS fechaCita FROM citas INNER JOIN usuarios, empleados, procedimientos LIMIT ' + args + ', 10');
   event.reply("cities", JSON.stringify(data))
 })
 
