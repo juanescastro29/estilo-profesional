@@ -5,4 +5,5 @@ require('./database')
 require('electron-reload')(__dirname)
 
 app.allowRenderProcessReuse = false;
+app.disableHardwareAcceleration();
 app.whenReady().then(createWindow)

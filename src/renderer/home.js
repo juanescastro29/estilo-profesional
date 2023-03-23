@@ -1,3 +1,5 @@
+const { ipcRenderer } = require("electron");
+
 const bntViewCites = document.getElementById('viewCitesBtn');
 const btnCreateCites = document.getElementById('createCitesBtn');
 const btnRegistUser = document.getElementById('registUserBtn');
