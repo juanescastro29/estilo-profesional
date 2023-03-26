@@ -6,6 +6,7 @@ const pastPage = document.getElementById("pastPage");
 const searchCite = document.getElementById("searchCite");
 
 let citesRender = [];
+let citesSearch = [];
 let page = 0;
 
 searchCite.addEventListener("input", (e) => {
@@ -24,21 +25,17 @@ searchCite.addEventListener("keyup", (e) => {
 })
 
 pastPage.addEventListener("click", () => {
-  console.log("click");
-  console.log(page);
   if (page >= 1) {
     page = page - 1;
     noData.innerHTML = "";
-    ipcRenderer.send("get-cities", page);
+    ipcRenderer.send("get-cites", page);
   }
 });
 
 nextPage.addEventListener("click", () => {
   if (page >= 0 && citesRender.length > 0) {
     page = page + 1;
-    ipcRenderer.send("get-cities", page);
-    console.log(page);
-    console.log(citesRender);
+    ipcRenderer.send("get-cites", page);
   }
 });
 
@@ -199,12 +196,11 @@ function renderSearch(cites) {
 ipcRenderer.on("cites", (event, args) => {
   citesRender = JSON.parse(args);
   renderCites(citesRender);
-  console.log(citesRender);
 });
 
 ipcRenderer.on("search", (event, args) => {
-  citesRender = JSON.parse(args);
-  renderSearch(citesRender)
+  citesSearch = JSON.parse(args);
+  renderSearch(citesSearch)
 });
 
 ipcRenderer.send("get-cites", page);
