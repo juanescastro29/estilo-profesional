@@ -14,6 +14,6 @@ btnCreateCites.addEventListener('click', () => {
 })
 
 btnRegistUser.addEventListener('click', () => {
-  console.log("click regist user");
+  window.location.href="user.html"
 })
 
