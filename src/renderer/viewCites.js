@@ -22,6 +22,11 @@ searchCite.addEventListener("keyup", (e) => {
   if (e.key == "Escape") {
     searchCite.value = "";
   }
+  const elementsData = {
+    page: page,
+    search: searchCite.value,
+  };
+  ipcRenderer.send("search-cites", elementsData);
 })
 
 pastPage.addEventListener("click", () => {
