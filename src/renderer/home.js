@@ -10,6 +10,7 @@ bntViewCites.addEventListener('click', () => {
 })
 
 btnCreateCites.addEventListener('click', () => {
+  window.location.href="createCites.html"
   console.log("click create cites");
 })
 
