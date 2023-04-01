@@ -1,69 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peluqueria</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <div class="flex items-center justify-between p-10">
-          <a
-            href="createCites.html"
-            class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800"
+      <div class="flex items-center justify-between p-10">
+        <a
+          href="createCites.html"
+          class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-5 h-5 rtl:-scale-x-100"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-5 h-5 rtl:-scale-x-100"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-              />
-            </svg>
-            <span> Crear cita </span>
-          </a>
-        </div>
-        <div class="container px-28 py-28 mx-auto">
-          <form id="registerUsers">
-            <div class="space-y-12">
-              <div class="border-b border-gray-900/10 pb-12">
-                <h4 class="text-base font-semibold leading-7 text-gray-900">
-                  Crear cita de peluqueria
-                </h4>
-                <p class="mt-1 text-sm leading-6 text-gray-600">
-                  Ingrese la Información de la cita
-                </p>
-              </div>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+            />
+          </svg>
+          <span> Crear cita </span>
+        </a>
+      </div>
+      <div class="container px-28 py-28 mx-auto">
+        <form id="createCiteHairdresser">
+          <div class="space-y-12">
+            <div class="border-b border-gray-900/10 pb-12">
+              <h4 class="text-base font-semibold leading-7 text-gray-900">
+                Crear cita de peluqueria
+              </h4>
+              <p class="mt-1 text-sm leading-6 text-gray-600">
+                Ingrese la Información de la cita
+              </p>
             </div>
-  
-            <div class="mt-6 flex items-center justify-items-center gap-x-6">
-              <button
-                type="button"
-                class="text-sm font-semibold leading-6 text-gray-900"
-              >
-                Cancelar
-              </button>
-              <button
-                id="btnAgregar"
-                type="submit"
-                class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Crear
-              </button>
-            </div>
-          </form>
-        </div>
-      </main>
-</body>
-<script src="./citeHairdresser.js"></script>
+          </div>
 
+          <div class="mt-6 flex items-center justify-items-center gap-x-6">
+            <button
+              type="button"
+              class="text-sm font-semibold leading-6 text-gray-900"
+              id="btnCancel"
+            >
+              Cancelar
+            </button>
+            <button
+              id="btnCreateCiteHairdresser"
+              type="submit"
+              class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Crear
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+  <script src="./citeHairdresser.js"></script>
 </html>
