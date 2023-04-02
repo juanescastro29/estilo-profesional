@@ -12,12 +12,8 @@ btnAgregar.addEventListener('click', () => {
         nombreUsuario: nombreUsuario.value,
         apellidoUsuario: apellidoUsuario.value,
         telefonoUsuario: telefonoUsuario.value 
-
     }
-
-
     ipcRenderer.send('add-user',user)
-
 }) 
 
 
