@@ -20,14 +20,19 @@ ipcMain.on("add-user", async (event, args) => {
   try {
     const connection = await getConection();
     args.idUsuario = parseInt(args.idUsuario);
-    const data = await connection.query("INSERT INTO usuarios SET ?", args);
+    await connection.query("INSERT INTO usuarios SET ?", args);
     
     new Notification({
       title: "Estilo Profesional",
-      body: "Usuario agregado correctamente",
+      body: "¡Correcto! Usuario agregado correctamente",
     }).show();
+
   } catch (error) {
     console.log(error);
+    new Notification({
+      title: "Estilo Profesional",
+      body: "¡Error! Usuario ya registrado",
+    }).show();
   }
 })
 
