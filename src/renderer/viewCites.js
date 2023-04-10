@@ -14,19 +14,18 @@ searchCite.addEventListener("input", (e) => {
     page: page,
     search: e.target.value,
   };
-  console.log(elementsData);
-  ipcRenderer.send("search-cites", elementsData);
+  if(elementsData.search == "") {
+    ipcRenderer.send("get-cites", page);
+  }else {
+    ipcRenderer.send("search-cites", elementsData);
+  }
 });
 
 searchCite.addEventListener("keyup", (e) => {
   if (e.key == "Escape") {
     searchCite.value = "";
+    ipcRenderer.send("get-cites", page);
   }
-  const elementsData = {
-    page: page,
-    search: searchCite.value,
-  };
-  ipcRenderer.send("search-cites", elementsData);
 });
 
 pastPage.addEventListener("click", () => {
