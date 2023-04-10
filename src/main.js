@@ -38,7 +38,8 @@ ipcMain.on("add-user", async (event, args) => {
 
 ipcMain.on("get-cites", async (event, args) => {
   const connection = await getConection();
-  const data = await connection.query('SELECT *, DATE_FORMAT(fechaCita, "%d/%m/%Y") AS fechaCita FROM citas INNER JOIN usuarios, empleados, procedimientos LIMIT ' + args * 10 + ', 10');
+  const data = await connection.query('SELECT *, DATE_FORMAT(fechaCita, "%d/%m/%Y") AS fechaCita FROM citas INNER JOIN usuarios, empleados, procedimientos WHERE citas.idUsuario = usuarios.idUsuario LIMIT ' + args * 10 + ', 10');
+  console.log(data);
   event.reply("cites", JSON.stringify(data))
 })
 
