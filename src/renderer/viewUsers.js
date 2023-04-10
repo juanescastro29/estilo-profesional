@@ -44,6 +44,11 @@ nextPage.addEventListener("click", () => {
   }
 });
 
+function deleteUser(usuarioId) {
+  ipcRenderer.send("delete-user", usuarioId);
+  window.location.reload()
+}
+
 function renderUsers(users) {
   userList.innerHTML = "";
   noData.innerHTML = "";
@@ -53,6 +58,7 @@ function renderUsers(users) {
     <tr>
       <td
         class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap"
+        id="id"
       >
         ${user.idUsuario}
       </td>
@@ -76,8 +82,8 @@ function renderUsers(users) {
       <td class="px-4 py-4 text-sm whitespace-nowrap">
         <div class="flex items-center gap-x-6">
           <button
-            class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none"
-            id="deleteCite"
+            class="text-red-400 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-red-600 focus:outline-none"
+            onclick="deleteUser(${user.idUsuario})"
           >
             Eliminar
           </button>

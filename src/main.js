@@ -60,6 +60,15 @@ ipcMain.on("search-users", async (event, args) => {
   event.reply("search-users", JSON.stringify(data))
 })
 
+ipcMain.on("delete-user", async (event, args) => {
+  const connection = await getConection();
+  const data = await connection.query(`DELETE FROM usuarios WHERE usuarios.idUsuario = `+ args +``);
+  new Notification({
+    title: "Estilo Profesional",
+    body: "¡Correcto! Usuario eliminado",
+  }).show();
+})
+
 module.exports = {
   createWindow
 }
