@@ -1,4 +1,5 @@
 const { ipcRenderer } = require("electron");
+
 const userList = document.getElementById("userList");
 const noData = document.getElementById("noData");
 const nextPage = document.getElementById("nextPage");
@@ -20,7 +21,7 @@ searchUser.addEventListener("input", (e) => {
 
 searchUser.addEventListener("keyup", (e) => {
   if (e.key == "Escape") {
-    searchCite.value = "";
+    searchUser.value = "";
   }
   const elementsData = {
     page: page,

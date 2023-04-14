@@ -10,6 +10,7 @@ const validateFirstName = document.getElementById("validateFirstName");
 const validateLastName = document.getElementById("validateLastName");
 const validateUserPhone = document.getElementById("validateUserPhone");
 const validForm = document.getElementById("validForm");
+const btnCancel = document.getElementById("cancelBtn");
 
 registerUsers.addEventListener("submit", (e) => {
   const regexIdUsuario = new RegExp("^([0-9]{6,10})$");
@@ -165,4 +166,8 @@ telefonoUsuario.addEventListener("input", (e) => {
       <small>El tamaño del teléfono no es correcto y solo se permiten números.</small>
       `;
   }
+});
+
+btnCancel.addEventListener("click", () => {
+  window.location.href = "home.html";
 });
