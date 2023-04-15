@@ -1,4 +1,4 @@
-const { ipcRenderer, ipcMain } = require("electron");
+const { ipcRenderer } = require("electron");
 
 const idUsuario = document.getElementById("idUser");
 const nombreUsuario = document.getElementById("firstName");
