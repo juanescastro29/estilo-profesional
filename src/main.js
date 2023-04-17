@@ -36,6 +36,26 @@ ipcMain.on("add-user", async (event, args) => {
   }
 })
 
+ipcMain.on("add-cite", async (event, args) => {
+  try {
+    const connection = await getConection();
+    args.idCita = parseInt(args.idCita);
+    await connection.query("INSERT INTO citas SET ?", args);
+    
+    new Notification({
+      title: "Estilo Profesional",
+      body: "¡Correcto! Cita agregada correctamente",
+    }).show();
+
+  } catch (error) {
+    console.log(error);
+    new Notification({
+      title: "Estilo Profesional",
+      body: "¡Error! Cita ya registrada",
+    }).show();
+  }
+})
+
 ipcMain.on("get-cites", async (event, args) => {
   const connection = await getConection();
   const data = await connection.query('SELECT *, DATE_FORMAT(fechaCita, "%d/%m/%Y") AS fechaCita FROM citas INNER JOIN usuarios ON citas.idUsuario = usuarios.idUsuario INNER JOIN empleados ON citas.idEmpleado = empleados.idEmpleado INNER JOIN procedimientos ON citas.idProcedimiento = procedimientos.idProcedimiento LIMIT ' + args * 10 + ', 10');
@@ -58,6 +78,12 @@ ipcMain.on("search-users", async (event, args) => {
   const connection = await getConection();
   const data = await connection.query(`SELECT * FROM usuarios WHERE usuarios.nombreUsuario LIKE '%` + args.search + `%' OR usuarios.apellidoUsuario LIKE '%`+ args.search + `%' OR usuarios.idUsuario LIKE '%` + args.search + `%' OR usuarios.telefonoUsuario LIKE '%` + args.search + `%' LIMIT ` + args.page * 10 + `, 10`);
   event.reply("search-users", JSON.stringify(data))
+})
+
+ipcMain.on("search-user-cite", async (event, args) => {
+  const connection = await getConection();
+  const data = await connection.query(`SELECT nombreUsuario, apellidoUsuario FROM usuarios WHERE usuarios.idUsuario LIKE '%` + args.search + `%'`);
+  event.reply("search-user-cite", JSON.stringify(data))
 })
 
 ipcMain.on("delete-user", async (event, args) => {

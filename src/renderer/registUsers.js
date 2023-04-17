@@ -47,7 +47,6 @@ registerUsers.addEventListener("submit", (e) => {
       if (!regexIdUsuario.test(idUsuario.value)) {
         validateIdUser.innerHTML += `
         <small>El tamaño de la cedúla no es correcto y solo se permiten números.</small>`;
-        console.log("here");
       }
 
       if (!regexNombreUsuario.test(nombreUsuario.value.replace(/\s/g, ""))) {
