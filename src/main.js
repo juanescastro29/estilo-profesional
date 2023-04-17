@@ -39,7 +39,6 @@ ipcMain.on("add-user", async (event, args) => {
 ipcMain.on("add-cite", async (event, args) => {
   try {
     const connection = await getConection();
-    args.idCita = parseInt(args.idCita);
     await connection.query("INSERT INTO citas SET ?", args);
     
     new Notification({

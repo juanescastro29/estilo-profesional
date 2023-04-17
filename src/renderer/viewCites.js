@@ -75,7 +75,7 @@ function renderCites(cites) {
       <td
         class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap"
       >
-        ${cite.idProcedimiento}
+        ${cite.nombreProcedimiento}
       </td>
       <td
         class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap"

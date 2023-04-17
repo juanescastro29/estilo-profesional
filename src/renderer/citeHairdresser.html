@@ -44,21 +44,20 @@
               <div
                 class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-4"
               >
-                <div class="sm:col-span-2">
+                <div class="sm:col-span-4">
                   <label
-                    for="idCita"
+                    for="usuario"
                     class="block text-sm font-medium leading-6 text-gray-900"
-                    >ID cita</label
+                    >Usuario</label
                   >
                   <div class="mt-2">
                     <input
                       type="text"
-                      name="id"
-                      id="idCite"
-                      autocomplete="given-name"
+                      name="user"
+                      id="idUser"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
                     />
-                    <div class="text-red-500" id="validateIdCite"></div>
+                    <div class="text-red-500" id="validateIdUser"></div>
                   </div>
                 </div>
 
@@ -81,49 +80,16 @@
 
                 <div class="sm:col-span-2">
                   <label
-                    for="hora"
-                    class="block text-sm font-medium leading-6 text-gray-900"
-                    >Hora</label
-                  >
-                  <div class="mt-2">
-                    <select name="time" id="timeCite" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center">
-                      <option value="">Seleccione la hora para la cita</option>
-                      <option value="8:00">8:00</option>
-                      <option value="8:40">8:40</option>
-                      <option value="9:20">9:20</option>
-                      <option value="10:00">10:00</option>
-                      <option value="10:40">10:40</option>
-                      <option value="11:20">11:20</option>
-                    </select>
-                    <div class="text-red-500" id="validateTimeCite"></div>
-                  </div>
-                </div>
-
-                <div class="sm:col-span-2">
-                  <label
-                    for="usuario"
-                    class="block text-sm font-medium leading-6 text-gray-900"
-                    >Usuario</label
-                  >
-                  <div class="mt-2">
-                    <input
-                      type="text"
-                      name="user"
-                      id="idUser"
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
-                    />
-                    <div class="text-red-500" id="validateIdUser"></div>
-                  </div>
-                </div>
-
-                <div class="sm:col-span-2">
-                  <label
                     for="procedimiento"
                     class="block text-sm font-medium leading-6 text-gray-900"
                     >Procedimiento</label
                   >
                   <div class="mt-2">
-                    <select name="procedure" id="idProcedure" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center">
+                    <select
+                      name="procedure"
+                      id="idProcedure"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
+                    >
                       <option value="">Selecicone el procedimiento</option>
                       <option value="1001">Corte de cabello</option>
                       <option value="1002">Alisado temporal</option>
@@ -141,13 +107,47 @@
                     >Empleado</label
                   >
                   <div class="mt-2">
-                    <select name="employee" id="idEmployee" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center">
+                    <select
+                      name="employee"
+                      id="idEmployee"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
+                    >
                       <option value="">Selecicone el empleado</option>
                       <option value="1052414064">Luis Gomez</option>
                       <option value="46370873">Marta Lopez</option>
                       <option value="7171673">Veronica Suarez</option>
                     </select>
                     <div class="text-red-500" id="validateIdEmployee"></div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label
+                    for="hora"
+                    class="block text-sm font-medium leading-6 text-gray-900"
+                    >Hora</label
+                  >
+                  <div class="mt-2">
+                    <select
+                      name="time"
+                      id="timeCite"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
+                    >
+                      <option value="">Seleccione la hora para la cita</option>
+                      <option value="8:00">8:00</option>
+                      <option value="8:40">8:40</option>
+                      <option value="9:20">9:20</option>
+                      <option value="10:00">10:00</option>
+                      <option value="10:40">10:40</option>
+                      <option value="11:20">11:20</option>
+                      <option value="14:00">14:00</option>
+                      <option value="14:40">14:40</option>
+                      <option value="15:20">15:20</option>
+                      <option value="16:00">16:00</option>
+                      <option value="16:40">16:40</option>
+                      <option value="17:20">17:20</option>
+                    </select>
+                    <div class="text-red-500" id="validateTimeCite"></div>
                   </div>
                 </div>
               </div>
