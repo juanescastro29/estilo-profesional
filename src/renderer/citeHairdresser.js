@@ -15,6 +15,8 @@ const validForm = document.getElementById("validForm");
 const btnCancel = document.getElementById("btnCancel");
 
 let usersSearch = [];
+let employes = [];
+let procedures = [];
 var today = new Date();
 
 createCiteHairdresser.addEventListener("submit", (e) => {
@@ -104,10 +106,12 @@ dateCite.addEventListener("focusout", (e) => {
 });
 
 dateCite.addEventListener("change", (e) => {
-  var fechaHoy = `${today.getFullYear()}-0${today.getMonth()+1}-${today.getDate()}`;
-  var fechaIngresada = `${dateCite.value}`;
+  const fechaHoy = `${today.getFullYear()}-0${
+    today.getMonth() + 1
+  }-${today.getDate()}`;
+  const fechaIngresada = `${dateCite.value}`;
   validateDateCite.innerHTML = "";
-  if ( fechaIngresada < fechaHoy ) {
+  if (fechaIngresada < fechaHoy) {
     validateDateCite.innerHTML += `La fecha debe ser posterior a la fecha actual`;
     dateCite.value = "";
   }
@@ -135,7 +139,7 @@ timeCite.addEventListener("focusout", (e) => {
 });
 
 btnCancel.addEventListener("click", () => {
-  window.location.href = "home.html";
+  window.location.href = "createCites.html";
 });
 
 function renderSearch(users) {
@@ -148,7 +152,47 @@ function renderSearch(users) {
     : (validateIdUser.innerHTML += `<small>El usuario con cedula ${idUser.value} no esta registrado.</small>`);
 }
 
+function renderEmployes(employes) {
+  idEmployee.innerHTML = "";
+  employes.length !== 0
+    ? employes.forEach((employ) => {
+        idEmployee.innerHTML = `
+        <option value="">Seleccione el empleado</option>
+        <option value=${employ.idEmpleado}>${employ.nombreEmpleado} ${employ.apellidoEmpleado}</option>
+      `;
+      })
+    : (idEmployee.innerHTML = `
+    <option value="">No hay empleados en la base de datos</option>`);
+}
+
+function renderProcedures(procedures) {
+  idProcedure.innerHTML = "";
+  console.log(procedures);
+  procedures.length !== 0
+    ? procedures.forEach((procedure) => {
+        idProcedure.innerHTML = `
+        <option value="">Seleccione el procedimiento</option>
+        <option value=${procedure.idProcedimiento}>${procedure.nombreProcedimiento}</option>
+      `;
+      })
+    : (idProcedure.innerHTML = `
+    <option value="">No hay procedimientos en la base de datos</option>`);
+}
+
 ipcRenderer.on("search-user-cite", (event, args) => {
   usersSearch = JSON.parse(args);
   renderSearch(usersSearch);
 });
+
+ipcRenderer.on("employes", (event, args) => {
+  employes = JSON.parse(args);
+  renderEmployes(employes);
+});
+
+ipcRenderer.on("procedures-hairdresser", (event, args) => {
+  procedures = JSON.parse(args);
+  renderProcedures(procedures);
+});
+
+ipcRenderer.send("get-employes");
+ipcRenderer.send("get-procedures-hairdresser");

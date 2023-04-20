@@ -39,8 +39,7 @@ ipcMain.on("add-user", async (event, args) => {
 ipcMain.on("add-cite", async (event, args) => {
   try {
     const connection = await getConection();
-    await connection.query("INSERT INTO citas SET ?", args);
-    
+    await connection.query(`INSERT INTO citas SET ?`, args);
     new Notification({
       title: "Estilo Profesional",
       body: "¡Correcto! Cita agregada correctamente",
@@ -65,6 +64,18 @@ ipcMain.on("get-users", async (event, args) => {
   const connection = await getConection();
   const data = await connection.query('SELECT * FROM usuarios LIMIT ' + args * 10 + ', 10');
   event.reply("users", JSON.stringify(data))
+})
+
+ipcMain.on("get-employes", async (event, args) => {
+  const connection = await getConection();
+  const data = await connection.query('SELECT * FROM empleados');
+  event.reply("employes", JSON.stringify(data))
+})
+
+ipcMain.on("get-procedures-hairdresser", async (event, args) => {
+  const connection = await getConection();
+  const data = await connection.query(`SELECT * FROM procedimientos WHERE idProcedimiento LIKE '%10%'`);
+  event.reply("procedures-hairdresser", JSON.stringify(data))
 })
 
 ipcMain.on("search-cites", async (event, args) => {
