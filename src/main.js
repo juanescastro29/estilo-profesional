@@ -111,6 +111,37 @@ ipcMain.on("get-procedures-nails", async (event, args) => {
   event.reply("procedures-nails", JSON.stringify(data));
 });
 
+ipcMain.on("get-hours", async (event, args) => {
+  const connection = await getConection();
+  let data = [
+    {"hora": "8:00"},
+    {"hora": "8:40"},
+    {"hora": "9:20"},
+    {"hora": "10:00"},
+    {"hora": "10:40"},
+    {"hora": "11:20"},
+    {"hora": "14:00"},
+    {"hora": "14:40"},
+    {"hora": "15:20"},
+    {"hora": "16:00"},
+    {"hora": "16:40"},
+    {"hora": "17:20"},
+  ]
+  const cites = await connection.query(
+      `SELECT *, DATE_FORMAT(fechaCita, "%Y-%m-%d") AS fechaCita FROM citas WHERE fechaCita = "` +
+        args +
+        `"`
+    );
+  cites.forEach(cite => {
+    data.forEach(dat => {
+      if (cite.hora === dat.hora) {
+        dat.hora = 'null';
+      }
+    });
+  });
+  event.reply("render-hours", JSON.stringify(data));
+});
+
 ipcMain.on("get-procedures-depilation", async (event, args) => {
   const connection = await getConection();
   const data = await connection.query(

@@ -154,10 +154,11 @@ function renderSearch(users) {
 
 function renderEmployes(employes) {
   idEmployee.innerHTML = "";
+  idEmployee.innerHTML = `
+        <option value="">Seleccione el empleado</option>`;
   employes.length !== 0
     ? employes.forEach((employ) => {
-        idEmployee.innerHTML = `
-        <option value="">Seleccione el empleado</option>
+        idEmployee.innerHTML = idEmployee.innerHTML + `
         <option value=${employ.idEmpleado}>${employ.nombreEmpleado} ${employ.apellidoEmpleado}</option>
       `;
       })
@@ -167,15 +168,34 @@ function renderEmployes(employes) {
 
 function renderProcedures(procedures) {
   idProcedure.innerHTML = "";
+  idProcedure.innerHTML = `
+        <option value="">Seleccione el procedimiento</option>`;
   procedures.length !== 0
     ? procedures.forEach((procedure) => {
-        idProcedure.innerHTML = `
-        <option value="">Seleccione el procedimiento</option>
+        idProcedure.innerHTML = idProcedure.innerHTML + `
         <option value=${procedure.idProcedimiento}>${procedure.nombreProcedimiento}</option>
       `;
       })
     : (idProcedure.innerHTML = `
     <option value="">No hay procedimientos en la base de datos</option>`);
+}
+
+function renderHours(hours) {
+  timeCite.innerHTML = "";
+  timeCite.innerHTML = `
+        <option value="">Seleccione la hora</option>`;
+  hours.length !== 0
+    ? hours.forEach((hour) => {
+        if (hour.hora != "null") {
+          timeCite.innerHTML =
+            timeCite.innerHTML +
+            `
+        <option value=${hour.hora}>${hour.hora}</option>
+      `;
+        }
+      })
+    : (timeCite.innerHTML = `
+    <option value="">No hay horas disponibles para agendar la cita</option>`);
 }
 
 ipcRenderer.on("search-user-cite", (event, args) => {
@@ -191,6 +211,12 @@ ipcRenderer.on("employes", (event, args) => {
 ipcRenderer.on("procedures-hairdresser", (event, args) => {
   procedures = JSON.parse(args);
   renderProcedures(procedures);
+});
+
+ipcRenderer.on("render-hours", (event, args) => {
+  hours = JSON.parse(args);
+  console.log(hours);
+  renderHours(hours);
 });
 
 ipcRenderer.send("get-employes");
