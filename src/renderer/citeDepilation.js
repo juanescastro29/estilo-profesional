@@ -115,6 +115,7 @@ dateCite.addEventListener("change", (e) => {
     validateDateCite.innerHTML += `La fecha debe ser posterior a la fecha actual`;
     dateCite.value = "";
   }
+  ipcRenderer.send("get-hours", fechaIngresada)
 });
 
 idProcedure.addEventListener("focusout", (e) => {

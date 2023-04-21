@@ -128,18 +128,18 @@ ipcMain.on("get-hours", async (event, args) => {
     {"hora": "17:20"},
   ]
   const cites = await connection.query(
-      `SELECT *, DATE_FORMAT(fechaCita, "%Y-%m-%d") AS fechaCita FROM citas WHERE fechaCita = "` +
-        args +
-        `"`
+      `SELECT *, DATE_FORMAT(fechaCita, "%Y-%m-%d") AS fechaCita FROM citas WHERE fechaCita = "`+args +`" AND estado = "ACTIVA"`
     );
-  cites.forEach(cite => {
-    data.forEach(dat => {
-      if (cite.hora === dat.hora) {
-        dat.hora = 'null';
-      }
+  if (cites.length != 0) {
+    cites.forEach(cite => {
+      data.forEach(dat => {
+        if (cite.hora === dat.hora) {
+          dat.hora = 'null';
+        }
+      });
     });
-  });
-  event.reply("render-hours", JSON.stringify(data));
+  }
+  event.reply("render-hours", JSON.stringify(data))
 });
 
 ipcMain.on("get-procedures-depilation", async (event, args) => {
