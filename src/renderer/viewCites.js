@@ -192,7 +192,9 @@ function renderCites(cites) {
           </div>
       </div>
   </div>
-        <div x-data="{ isOpen: false }" class="relative flex justify-center">
+
+
+  <div x-data="{ isOpen: false }" class="relative flex justify-center">
           <button
             @click="isOpen = true"
             class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none"
@@ -210,7 +212,7 @@ function renderCites(cites) {
         class="fixed inset-0 z-10 overflow-y-auto" 
         aria-labelledby="modal-title" role="dialog" aria-modal="true"
     >
-     cancelar   <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+    <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
             <div class="relative inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl rtl:text-right dark:bg-gray-900 sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
