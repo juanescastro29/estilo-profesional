@@ -48,6 +48,11 @@ function changestatus(statusID) {
   window.location.reload()
 }
 
+function deleteCite(citeId) {
+  ipcRenderer.send("delete-cites", citeId);
+  window.location.reload()
+}
+
 function renderCites(cites) {
   citesList.innerHTML = "";
   noData.innerHTML = "";
@@ -143,8 +148,9 @@ function renderCites(cites) {
           <button
             class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none"
             id="editCite"
+            onclick="deleteCite(${cite.idCita})"
           >
-            Editar
+            ELiminar
           </button>
         </div>
       </td>
