@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Depilacion</title>
+    <title>Peluqueria</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
@@ -31,7 +31,7 @@
           <span> Crear cita </span>
         </a>
       </div>
-      <div class="container px-28 py-28 mx-auto">
+      <div class="container p-20 mx-auto">
         <form id="createCiteDepilation">
           <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
@@ -41,25 +41,23 @@
               <p class="mt-1 text-sm leading-6 text-gray-600">
                 Ingrese la Información de la cita
               </p>
-
               <div
                 class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-4"
               >
                 <div class="sm:col-span-4">
                   <label
-                    for="idUsuario"
+                    for="usuario"
                     class="block text-sm font-medium leading-6 text-gray-900"
-                    >ID cita</label
+                    >Usuario</label
                   >
                   <div class="mt-2">
                     <input
                       type="text"
-                      name="id"
-                      id="idCite"
-                      autocomplete="given-name"
+                      name="user"
+                      id="idUser"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
                     />
-                    <div class="text-red-500" id="validateIdCite"></div>
+                    <div class="text-red-500" id="validateIdUser"></div>
                   </div>
                 </div>
 
@@ -74,44 +72,9 @@
                       type="date"
                       name="date"
                       id="dateCite"
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center p-1"
                     />
                     <div class="text-red-500" id="validateDateCite"></div>
-                  </div>
-                </div>
-
-                <div class="sm:col-span-2">
-                  <label
-                    for="hora"
-                    class="block text-sm font-medium leading-6 text-gray-900"
-                    >Hora</label
-                  >
-                  <div class="mt-2">
-                    <input
-                      type="text"
-                      name="time"
-                      id="timeCite"
-                      autocomplete="given-name"
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
-                    />
-                    <div class="text-red-500" id="validateTimeCite"></div>
-                  </div>
-                </div>
-
-                <div class="sm:col-span-2">
-                  <label
-                    for="usuario"
-                    class="block text-sm font-medium leading-6 text-gray-900"
-                    >Usuario</label
-                  >
-                  <div class="mt-2">
-                    <input
-                      type="text"
-                      name="user"
-                      id="idUsuario"
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
-                    />
-                    <div class="text-red-500" id="validateIdUsuario"></div>
                   </div>
                 </div>
 
@@ -122,12 +85,12 @@
                     >Procedimiento</label
                   >
                   <div class="mt-2">
-                    <input
-                      type="text"
+                    <select
                       name="procedure"
                       id="idProcedure"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
-                    />
+                    >
+                    </select>
                     <div class="text-red-500" id="validateIdProcedure"></div>
                   </div>
                 </div>
@@ -139,30 +102,43 @@
                     >Empleado</label
                   >
                   <div class="mt-2">
-                    <input
-                      type="text"
+                    <select
                       name="employee"
                       id="idEmployee"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
-                    />
+                    >
+                    </select>
                     <div class="text-red-500" id="validateIdEmployee"></div>
                   </div>
                 </div>
 
                 <div class="sm:col-span-2">
                   <label
-                    for="estado"
+                    for="hora"
                     class="block text-sm font-medium leading-6 text-gray-900"
-                    >Estado</label
+                    >Hora</label
                   >
                   <div class="mt-2">
-                    <input
-                      type="text"
-                      name="status"
-                      id="citeStatus"
+                    <select
+                      name="time"
+                      id="timeCite"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
-                    />
-                    <div class="text-red-500" id="validateCiteStatus"></div>
+                    >
+                      <option value="">Seleccione la hora para la cita</option>
+                      <option value="8:00">8:00</option>
+                      <option value="8:40">8:40</option>
+                      <option value="9:20">9:20</option>
+                      <option value="10:00">10:00</option>
+                      <option value="10:40">10:40</option>
+                      <option value="11:20">11:20</option>
+                      <option value="14:00">14:00</option>
+                      <option value="14:40">14:40</option>
+                      <option value="15:20">15:20</option>
+                      <option value="16:00">16:00</option>
+                      <option value="16:40">16:40</option>
+                      <option value="17:20">17:20</option>
+                    </select>
+                    <div class="text-red-500" id="validateTimeCite"></div>
                   </div>
                 </div>
               </div>
@@ -173,7 +149,7 @@
             <p class="mt-1 text-sm leading-6 text-red-500" id="validForm"></p>
           </div>
 
-          <div class="mt-6 flex items-center justify-items-center gap-x-6">
+          <div class="mt-6 flex items-center justify-end gap-x-6">
             <button
               type="button"
               class="text-sm font-semibold leading-6 text-gray-900"

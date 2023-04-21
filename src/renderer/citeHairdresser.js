@@ -167,7 +167,6 @@ function renderEmployes(employes) {
 
 function renderProcedures(procedures) {
   idProcedure.innerHTML = "";
-  console.log(procedures);
   procedures.length !== 0
     ? procedures.forEach((procedure) => {
         idProcedure.innerHTML = `
