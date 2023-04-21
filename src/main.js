@@ -105,6 +105,12 @@ ipcMain.on("delete-user", async (event, args) => {
   }).show();
 })
 
+ipcMain.on("change-status", async (event, args) => {
+  const connection = await getConection();
+  const data = await connection.query(`UPDATE citas  SET citas.estado = "CANCELADA" WHERE citas.idCita= `+ args +``);
+})
+
+
 module.exports = {
   createWindow
 }

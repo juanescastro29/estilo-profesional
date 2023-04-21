@@ -43,6 +43,11 @@ nextPage.addEventListener("click", () => {
   }
 });
 
+function changestatus(statusID) {
+  ipcRenderer.send("change-status", statusID);
+  window.location.reload()
+}
+
 function renderCites(cites) {
   citesList.innerHTML = "";
   noData.innerHTML = "";
@@ -131,7 +136,8 @@ function renderCites(cites) {
           <button
             class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none"
             id="deleteCite"
-          >
+            onclick="changestatus(${cite.idCita})"
+            >
             Cancelar
           </button>
           <button
